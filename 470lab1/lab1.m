@@ -6,7 +6,7 @@
         0 43.18 0 -pi/2;
         0 0 0 pi/2
         0 20 0 0];
-myrobot = mypuma560(DH);
+myrobot = mypuma560(DH)
 
 %% 4.2 Plot a sample joint space trajectory
 q = [linspace(0, pi, 200);
@@ -22,7 +22,7 @@ disp("part 4.2 done")
 o = zeros(200, 3);
 for i = 1:200
    joint = q(i,:); 
-   H = forward(joint, myrobot);
+   H = forward(joint, myrobot)
    o(i,:)=transl(H);
 end
 plot3(o(:,1), o(:,2), o(:,3), 'r')
