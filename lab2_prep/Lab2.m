@@ -8,5 +8,5 @@
     
 myrobot = mypuma560(DH); % define our robot
 %% prelab: jacobian matrix
-jacobianmatrix = jacobian([pi/4 pi/3 -pi/2 pi/4 pi/6 -pi/6],myrobot)
-ajacobianmatrix = ajacobian([pi/4 pi/3 -pi/2 pi/4 pi/6 -pi/6],myrobot)
+jacobianmatrix = jacobian([pi/4 pi/3 -pi/2 pi/4 pi/6 -pi/6],myrobot) % calculate geometric jacobian
+ajacobianmatrix = ajacobian([pi/4 pi/3 -pi/2 pi/4 pi/6 -pi/6],myrobot) % calculate analytic jacobian
