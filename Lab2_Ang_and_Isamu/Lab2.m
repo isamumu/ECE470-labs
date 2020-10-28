@@ -10,17 +10,20 @@ myrobot = mypuma560(DH); % define our robot
 %% prelab: jacobian matrix
 jacobianmatrix = jacobian([pi/4 pi/3 -pi/2 pi/4 pi/6 -pi/6],myrobot)
 ajacobianmatrix = ajacobian([pi/4 pi/3 -pi/2 pi/4 pi/6 -pi/6],myrobot)
+
 %% 4.1
 %4.1.1
 qref = zeros(6,100);
 qdref = zeros(6,100);
 qdref1 = zeros(6,100);
 norm_vec = zeros(100);
+
  for i = 1:100
    temp = inverse(Href(:,:,i), myrobot);
    qref(:,i)=temp';
    %disp(temp');
  end
+ 
  %4.1.2 for each i btw 1 to 100
  for i = 1:100
      H = Href(:,:,i);
@@ -34,22 +37,27 @@ norm_vec = zeros(100);
      omega_y = s_omega(1,3);
      omega_z = s_omega(2,1);
      omega = [omega_x;omega_y;omega_z];
+     
      %4.1.2.b calculating qdref
      odotomega = [odot;omega];
      Jqref = jacobian(qrefi,myrobot);
      qrefdot = (inv(Jqref))*odotomega;
      qdref(:,i)=qrefdot;
+     
      %4.1.2.c calculating eul
      eul = tr2eul(H);
      phi = eul(1); theta = eul(2);
      B=[0 -sin(phi) cos(phi)*sin(theta); 0 cos(phi) sin(phi)*sin(theta); 1 0 cos(theta)];
+     
      %4.1.2.d calculating alphadot
      alphadot = inv(B)*omega;
+     
      %4.1.2.e calculating qdref1
      odotalphadot = [odot;alphadot];
      aJqref = ajacobian(qrefi,myrobot);
      qrefdot1 = (inv(aJqref))*odotalphadot;
      qdref1(:,i)=qrefdot1;
+     
      %4.1.2.f check for correctness
      diff = qrefdot - qrefdot1;
      normdiff = norm(diff);

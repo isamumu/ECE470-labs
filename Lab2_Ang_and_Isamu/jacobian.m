@@ -10,12 +10,14 @@ H4 = myrobot.links(4).A(q(4));%disp(H4);
 H5 = myrobot.links(5).A(q(5));%disp(H5);
 H6 = myrobot.links(6).A(q(6));%disp(H6);
 H00 = [0,0,1];O00 = [0,0,0];
+
 H01 = H1;               [H01,O01]=tr2rt(H01);%disp(O01)
 H02 = H1*H2;            [H02,O02]=tr2rt(H02);%disp(O02)%disp(H02);
 H03 = H1*H2*H3;         [H03,O03]=tr2rt(H03);%disp(O03)%disp(H03);
 H04 = H1*H2*H3*H4;      [H04,O04]=tr2rt(H04);%disp(O04)%disp(H04);
 H05 = H1*H2*H3*H4*H5;   [H05,O05]=tr2rt(H05);%disp(O05)%disp(H05);
 H06 = H1*H2*H3*H4*H5*H6;[H06,O06]=tr2rt(H06);%disp(O06)
+
 J(4:6,1)=H00; Z00 = H00;
 J(4:6,2)=H01(:,3);Z01 = H01(:,3);
 J(4:6,3)=H02(:,3);Z02 = H02(:,3);
