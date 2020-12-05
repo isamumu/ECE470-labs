@@ -1,4 +1,4 @@
-function [ J ] = jacobian( q ,myrobot )
+function [ J ] = jacobian( q ,myrobot, i)
 %jacobian solver, q is the joint variable and myrobot is the robot
 J=zeros(6,6);
 

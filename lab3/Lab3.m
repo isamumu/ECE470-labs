@@ -10,12 +10,11 @@ myrobot = mypuma560(DH); % define our robot
 %% 3.1 the attractive field
 H1 = eul2tr([0 pi pi/2]);
 H1(1:3,4) = 100*[-1;3;3;]/4;
-%q1 = inverse(H1,myrobot)
+q1 = inverse(H1,myrobot)
 H2 = eul2tr([0 pi -pi/2]);
 H2(1:3,4) = 100*[3;-1;2;]/4;
-%q2 = inverse(H2,myrobot)
-q1= [1.5887    0.6969    0.6700   -3.1416    1.3668   -3.1236];
-q2= [-0.6256    0.4241    0.5632   -3.1416    0.9873   -2.1964];
+q2 = inverse(H2,myrobot)
+
 tau_att = att( q1,q2,myrobot )
 %% 3.2 Motion Planning without obstacles
 %q2(4) = q2(4) + 2*pi;

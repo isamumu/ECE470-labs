@@ -30,6 +30,8 @@ function qref=motionplan(q0,q2,t1,t2,myrobot,obs,tol)
         end
         i = i + 1;
     end
+    
+    q(:,6) = linspace(q0(6), q2(6), 4170);
     t = linspace(t1,t2,size(q,1));
     qref = spline(t,q');
 end

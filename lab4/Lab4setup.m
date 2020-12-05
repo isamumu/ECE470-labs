@@ -14,6 +14,7 @@ H1(1:3,4)=[-1; 3; 3;]/4;
 H2 = eul2tr([0 pi -pi/2]);
 H2(1:3,4)=[3; -1; 2;]/4;
 setupobstacle4
+
 q1 = inverse (H1,myrobot)
 q2 = inverse (H2,myrobot)
 splineqref = motionplan(q1,q2,0,10,myrobot,obs,0.01);

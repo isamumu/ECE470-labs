@@ -1,7 +1,7 @@
 function dx = motors4a(t,x,myrobot,splineqref,splineqdref,splineqddref)
 
     % Speed up time to reduce overall simulation time
-    t = t*10;
+    % t = t*10;
     
     % Computation of reference signal and its first two time derivatives
     qref = ppval(splineqref,t);
@@ -17,19 +17,19 @@ function dx = motors4a(t,x,myrobot,splineqref,splineqdref,splineqddref)
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     % Insert Kp and Kd here
-    Kp=[8e-4 0    0    0       0       0;
-        0    8e-4 0    0       0       0;
-        0    0    8e-4 0       0       0;
-        0    0    0    1.32e-4 0       0;
-        0    0    0    0       1.32e-4 0;
-        0    0    0    0       0       1.32e-4];
+    Kp=[4 0    0    0       0       0;
+        0    4 0    0       0       0;
+        0    0    4 0       0       0;
+        0    0    0    4    0       0;
+        0    0    0    0    4       0;
+        0    0    0    0    0       4];
 
-    Kd=[-6.8e-4 0        0      0        0        0;
-        0       -0.17e-4 0      0        0        0;
-        0       0        5.8e-4 0        0        0;
-        0       0        0      0.608e-4 0        0;
-        0       0        0      0        0.494e-4 0;
-        0       0        0      0        0        0.953e-4];
+    Kd=[4 0        0      0        0        0;
+        0       4 0      0        0        0;
+        0       0        4 0        0        0;
+        0       0        0      4 0        0;
+        0       0        0      0        4 0;
+        0       0        0      0        0        4];
 
     % Outer Loop Controller, insert equation (8.25) here
     aq = qddref - Kp*(q-qref)-Kd*(qd - qdref);
