@@ -1,0 +1,7 @@
+4.3:
+As we can see from the trajectory plot, the apply of the sudden load from time 5-7 will cause a turbulation on the motor simulation signal. 
+However, as t>7, the motor signal will quickly converge to the reference signal, under the operation of the linear controller.
+
+4.4:
+the perturbation added causing the motor signal's absolute gap to the refernce signal to increase.
+As we increase the value of kp and kd by a factor of 2. This absolute gap is decreased, ie the motor signal is more algined with the reference
