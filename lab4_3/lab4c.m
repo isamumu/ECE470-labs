@@ -1,4 +1,4 @@
-%%
+c%%
 clc
 clear all
 disp('lab4c')
